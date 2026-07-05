@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة الإدارة | المؤسسة الدولية للنشر العلمي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-main: #f4f6f9;
+            --bg-card: #ffffff;
+            --primary-blue: #1b4f72;
+            --accent-blue: #2874a6;
+            --text-dark: #2c3e50;
+            --danger-red: #cb4335;
+            --success-green: #196f3d;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 { margin: 0; font-size: 20px; }
+        header a {
+            color: white;
+            text-decoration: none;
+            border: 1px solid white;
+            padding: 5px 15px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            margin-bottom: 25px;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--primary-blue);
+            border-bottom: 2px solid #eaeded;
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #d5dbdb;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .btn-submit {
+            background-color: var(--accent-blue);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .btn-submit:hover { background-color: var(--primary-blue); }
+
+        .item-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .item-list li {
+            background: #f8fafc;
+            padding: 15px;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn-delete {
+            background-color: var(--danger-red);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🛠️ لوحة تحكم الإدارة (الأدمن)</h1>
+        <a href="index.html" target="_blank">عرض الموقع الرئيسي <i class="fas fa-external-link-alt"></i></a>
+    </header>
+
+    <div class="container">
+        
+        <!-- قسم إضافة الإعلانات اليومية -->
+        <div class="card">
+            <h3>📢 نشر إعلان جديد (إعلاناتنا اليومية)</h3>
+            <form id="announcementForm">
+                <div class="form-group">
+                    <label for="announcementText">نص الإعلان اليومي:</label>
+                    <textarea id="announcementText" rows="3" placeholder="اكتب الإعلان أو التنبيه هنا ليظهر للزوار..." required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">نشر الإعلان في الموقع</button>
+            </form>
+
+            <h4>الإعلانات المنشورة حالياً:</h4>
+            <ul class="item-list" id="adminAnnouncementsList"></ul>
+        </div>
+
+        <!-- قسم إضافة الملفات والمجلات الرقمية -->
+        <div class="card">
+            <h3>📚 رفع ملف جديد إلى المكتبة الرقمية</h3>
+            <form id="libraryForm">
+                <div class="form-group">
+                    <label for="fileTitle">عنوان الملف / المجلة العلمية:</label>
+                    <input type="text" id="fileTitle" placeholder="مثال: مجلة العلوم الإنسانية - العدد الأول" required>
+                </div>
+                <div class="form-group">
+                    <label for="fileDesc">وصف مختصر للملف:</label>
+                    <input type="text" id="fileDesc" placeholder="مثال: يحتوي هذا الملف على شروط النشر المحدثة">
+                </div>
+                <div class="form-group">
+                    <label for="fileUrl">رابط تحميل الملف المباشر (من Google Drive أو Dropbox):</label>
+                    <input type="url" id="fileUrl" placeholder="https://example.com/document.pdf" required>
+                </div>
+                <button type="submit" class="btn-submit">إضافة إلى مركز التحميل</button>
+            </form>
+
+            <h4>الملفات المتاحة في المكتبة حالياً:</h4>
+            <ul class="item-list" id="adminLibraryList"></ul>
+        </div>
+
+    </div>
+
+    <script>
+        // إعداد التخزين المحلي (LocalStorage) كبنية تحتية مرنة للبيانات
+        function loadAdminData() {
+            const announcements = JSON.parse(localStorage.getItem('announcements')) || [];
+            const library = JSON.parse(localStorage.getItem('library')) || [];
+            
+            const annList = document.getElementById('adminAnnouncementsList');
+            const libList = document.getElementById('adminLibraryList');
+            
+            annList.innerHTML = '';
+            libList.innerHTML = '';
+
+            announcements.forEach((ann, index) => {
+                annList.innerHTML += `<li><span>${ann}</span><button class="btn-delete" onclick="deleteItem('announcements', ${index})">حذف</button></li>`;
+            });
+
+            library.forEach((item, index) => {
+                libList.innerHTML += `<li><span><strong>${item.title}</strong> - ${item.desc}</span><button class="btn-delete" onclick="deleteItem('library', ${index})">حذف</button></li>`;
+            });
+        }
+
+        function deleteItem(type, index) {
+            let data = JSON.parse(localStorage.getItem(type)) || [];
+            data.splice(index, 1);
+            localStorage.setItem(type, JSON.stringify(data));
+            loadAdminData();
+        }
+
+        document.getElementById('announcementForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const text = document.getElementById('announcementText').value;
+            let announcements = JSON.parse(localStorage.getItem('announcements')) || [];
+            announcements.push(text);
+            localStorage.setItem('announcements', JSON.stringify(announcements));
+            document.getElementById('announcementText').value = '';
+            loadAdminData();
+        });
+
+        document.getElementById('libraryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const title = document.getElementById('fileTitle').value;
+            const desc = document.getElementById('fileDesc').value;
+            const url = document.getElementById('fileUrl').value;
+            
+            let library = JSON.parse(localStorage.getItem('library')) || [];
+            library.push({title, desc, url});
+            localStorage.setItem('library', JSON.stringify(library));
+            
+            document.getElementById('fileTitle').value = '';
+            document.getElementById('fileDesc').value = '';
+            document.getElementById('fileUrl').value = '';
+            loadAdminData();
+        });
+
+        window.onload = loadAdminData;
+    </script>
+</body>
+</html>
