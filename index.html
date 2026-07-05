@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>المؤسسة الدولية للنشر العلمي | ISPF</title>
+    <!-- خطوط مريحة للعين وفخمة للقراءة الأكاديمية -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -29,12 +30,12 @@
             scroll-behavior: smooth;
         }
 
-        /* الهيدر المطور والمتجاوب بالكامل */
+        /* الهيدر المطور: الشعار والاسم يمين | زر القائمة يسار (شمال) */
         header {
             background-color: var(--bg-card);
             padding: 15px 40px;
             display: flex;
-            justify-content: space-between; 
+            justify-content: space-between; /* يدفع الشعار لليمين والزر لليسار */
             align-items: center;
             box-shadow: 0 4px 20px rgba(15, 58, 95, 0.06);
             position: sticky;
@@ -43,16 +44,16 @@
             border-bottom: 4px solid var(--primary-blue);
         }
 
-        /* حاوية الشعار والنص على اليمين */
+        /* حاوية الشعار والنص (ثابتة على اليمين) */
         .brand-container {
             display: flex;
             align-items: center;
-            gap: 20px; /* مسافة مريحة للشعار الكبير */
+            gap: 20px; 
         }
 
-        /* تكبير الشعار وجعله واضحاً ومحفوظ الأبعاد */
+        /* الشعار كبير وواضح جداً */
         .site-logo {
-            max-height: 90px; /* زيادة الارتفاع ليكون واضحاً وبارزاً */
+            max-height: 90px; 
             width: auto;
             object-fit: contain;
             display: block;
@@ -65,7 +66,7 @@
         }
 
         .brand-text h1 {
-            font-size: 24px; /* حجم خط فخم ومناسب للابتوب */
+            font-size: 24px; 
             font-weight: 700;
             margin: 0;
             color: var(--primary-blue);
@@ -81,7 +82,11 @@
             margin-top: 4px;
         }
 
-        /* زر القائمة */
+        /* حاوية زر القائمة (ثابتة على اليسار / الشمال) */
+        .burger-container {
+            order: 2; /* يضمن بقاء الزر يساراً في نظام الترتيب */
+        }
+
         .burger-btn {
             font-size: 15px;
             cursor: pointer;
@@ -105,28 +110,26 @@
             transform: translateY(-1px);
         }
 
-        /* شاشات الجوال والأجهزة الصغيرة (تجاوب تلقائي) */
+        /* شاشات الجوال والأجهزة الصغيرة (تجاوب تلقائي متكامل) */
         @media (max-width: 768px) {
             header {
-                padding: 12px 15px; /* تقليص الحواف في الجوال */
-                flex-direction: row; 
-                justify-content: space-between;
+                padding: 12px 15px; 
             }
 
             .brand-container {
-                gap: 10px; /* تقليل المسافة لتناسب عرض الجوال */
+                gap: 10px; 
             }
 
             .site-logo {
-                max-height: 60px; /* حجم شعار متناسق مع شاشة الجوال دون تشويه */
+                max-height: 60px; /* حجم الشعار في الجوال */
             }
 
             .brand-text h1 {
-                font-size: 15px; /* تصغير الخط ليناسب شاشات الجوال الصغيرة */
+                font-size: 15px; 
             }
 
             .brand-text span {
-                font-size: 9px; /* تصغير النص الإنجليزي بالتبعية */
+                font-size: 9px; 
             }
 
             .burger-btn {
@@ -135,7 +138,7 @@
             }
         }
 
-        /* القائمة الجانبية (Right Sidebar) */
+        /* القائمة الجانبية (الـ Sidebar يظهر من اليمين بشكل أنيق عند النقر) */
         .sidebar {
             position: fixed;
             top: 0;
@@ -313,6 +316,7 @@
 
         .card li { margin-bottom: 8px; }
 
+        /* صندوق الإعلانات اليومية المشرق */
         .announcement-box {
             background: linear-gradient(to left, #fffdf5, #ffffff);
             border-right: 4px solid #f1c40f;
@@ -322,8 +326,10 @@
             padding: 25px;
             border-radius: 10px;
             margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(241, 196, 15, 0.04);
         }
 
+        /* شبكة تحميل الملفات */
         .library-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -345,6 +351,13 @@
         .download-item:hover {
             transform: translateY(-4px);
             box-shadow: 0 8px 25px rgba(15, 58, 95, 0.05);
+            border-color: #cbd5e1;
+        }
+
+        .download-item h4 {
+            margin: 0 0 8px 0;
+            color: var(--primary-blue);
+            font-size: 17px;
         }
 
         .btn-download {
@@ -357,11 +370,14 @@
             margin-top: 20px;
             font-size: 14px;
             font-weight: 600;
+            transition: 0.2s;
         }
+        .btn-download:hover { background-color: var(--primary-blue); }
 
+        /* أرباع سكوبس */
         .scopus-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
             gap: 20px;
             margin-top: 25px;
         }
@@ -373,11 +389,26 @@
             text-align: center;
             border: 1px solid #e2e8f0;
             border-top: 4px solid var(--primary-blue);
+            transition: 0.3s;
         }
 
+        .scopus-level:hover {
+            background: white;
+            border-top-color: var(--gold-accent);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+        }
+
+        .scopus-level h4 {
+            margin: 0 0 8px 0;
+            color: var(--primary-blue);
+            font-size: 18px;
+        }
+        .scopus-level h4::before { content: none; }
+
+        /* فريق العمل الدولي */
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 25px;
             margin-top: 25px;
         }
@@ -387,8 +418,15 @@
             padding: 25px;
             border-radius: 12px;
             text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.01);
             border: 1px solid #eef2f6;
+            transition: 0.3s;
         }
+        .team-card:hover { border-color: var(--accent-blue); }
+
+        .team-card h4 { margin: 5px 0; color: var(--primary-blue); font-size: 17px; }
+        .team-card h4::before { content: none; }
+        .team-card p { margin: 0; color: var(--text-muted); font-size: 14.5px; }
         
         .flag {
             font-size: 14px;
@@ -401,6 +439,7 @@
             font-weight: 600;
         }
 
+        /* الفوتر */
         footer {
             background-color: var(--primary-blue);
             color: #ffffff;
@@ -409,6 +448,8 @@
             margin-top: 60px;
             font-size: 14.5px;
         }
+
+        footer p { opacity: 0.9; }
 
         .footer-contacts { margin: 25px 0; }
         .footer-contacts a {
@@ -422,11 +463,17 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
+            transition: 0.3s;
+        }
+        .footer-contacts a:hover {
+            background: var(--gold-accent);
+            color: white;
         }
     </style>
 </head>
 <body>
 
+    <!-- الهيدر المطور (يمين: شعار موسط واسم / شمال: قائمة الموقع) -->
     <header>
         <div class="brand-container">
             <img src="logo.png" alt="شعار المؤسسة الدولية للنشر العلمي" class="site-logo">
@@ -441,6 +488,7 @@
         </div>
     </header>
 
+    <!-- القائمة الجانبية المنسدلة -->
     <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
     <div class="sidebar" id="sidebar">
         <button class="close-btn" onclick="toggleSidebar()"><i class="fas fa-times"></i></button>
@@ -458,6 +506,7 @@
 
     <div class="container">
         
+        <!-- البانر التعريفي الرئيسي المطور -->
         <section class="hero" id="about">
             <h2>المؤسسة الدولية للنشر العلمي</h2>
             <p>مؤسسة بحثية أكاديمية متخصصة، نعمل بشكل إلكتروني على نطاق واسع لمساعدة الباحثين وطلبة الدراسات العليا في نشر بحوثهم في أرقى المجلات العالمية لجميع الاختصاصات.</p>
@@ -466,12 +515,15 @@
             </a>
         </section>
 
+        <!-- قسم الإعلانات اليومية -->
         <h3 class="section-title" id="announcements"><i class="fas fa-bullhorn"></i> إعلاناتنا اليومية</h3>
         <div class="announcement-box" id="announcementsContainer">
             <p>📌 أهلاً بكم في منصتنا. الإعلانات والورش العلمية المحدثة تظهر هنا فور نشرها من قبل الإدارة.</p>
         </div>
 
+        <!-- المكتبة الرقمية -->
         <h3 class="section-title" id="library"><i class="fas fa-book-open"></i> المكتبة الرقمية ومركز تحميل الملفات</h3>
+        <p style="color: var(--text-muted); margin-bottom: 25px;">تصفح وحمل أحدث المجلات العلمية، شروط النشر المحدثة، الأدلة الأكاديمية، والنماذج المرفوعة مباشرة من الإدارة:</p>
         <div class="library-grid" id="libraryContainer">
             <div class="download-item">
                 <div>
@@ -482,26 +534,64 @@
             </div>
         </div>
 
+        <!-- الأهداف والنشأة -->
         <h3 class="section-title"><i class="fas fa-compass"></i> التوجهات والأهداف الاستراتيجية</h3>
         <div class="card">
             <h4>🎯 هدفنا ورؤيتنا</h4>
-            <p>نهدف للمساهمة بالنشر العلمي في جميع الاختصاصات لتعزيز البحث العلمي والكتابة الأكاديمية.</p>
+            <p>نهدف للمساهمة بالنشر العلمي في جميع الاختصاصات لتعزيز البحث العلمي والكتابة الأكاديمية. وسعياً لتحقيق هذا الهدف تشترط المؤسسة حداثة الموضوعات البحثية، وخلوها من السرقات العلمية، والأخطاء اللغوية.</p>
             
             <h4>📜 النشأة والتأسيس</h4>
-            <p>أنشئت المؤسسة عبر الإنترنت عام 2016م وشاركت بكفاءة عالية في النشر الدولي المعتمد.</p>
+            <p>أنشئت المؤسسة عبر الإنترنت عام 2016م. ومن خلال سنوات عملها، أثبتت حضوراً بارزاً في تحكيم المؤلفات والنشر العلمي في العالم والوطن العربي من خلال مجموعة من المجلات العلميّة المحكّمة المعتمدة دولياً.</p>
+
+            <h4>🚀 توجهات المؤسسة الرئيسة</h4>
+            <ul>
+                <li>المساهمة الفعالة في نشر البحوث والدراسات العلمية للترقيات وطلبة الدراسات العليا.</li>
+                <li>العمل على إعداد القادة وتأهيلهم في المجالات التي يوجهون إليها في البحث العلمي.</li>
+                <li>خلق فرص عمل إنتاجية عن طريق الورش التابعة للمركز.</li>
+                <li>الاستفادة على وجه الخصوص من المؤتمرات العلمية للباحثين.</li>
+            </ul>
+
+            <h4>🛠️ مهام المؤسسة</h4>
+            <p>تقوم المؤسسة بنشر الأبحاث في جميع الاختصاصات وفهرستها، وهي مؤسسة أكاديمية تُقدِّم خدمات البحث العلمي عبر مجموعة متميّزة من المجلات العلمية المُحكَّمة، ويُشرف عليها كادر من العلماء والأكاديميين.</p>
         </div>
 
+        <!-- قسم سكوباس كاملاً وبدون اختصار -->
         <h3 class="section-title" id="scopus"><i class="fas fa-graduation-cap"></i> النشر في سكوباس (Scopus)</h3>
         <div class="card">
+            <p><strong>ما هي سكوباس?</strong> قاعدة بيانات عالمية ضخمة تضم آلاف المجلات العلمية المُحكّمة وتُعد المعيار الأساسي لتقييم جودة الأبحاث، واعتماد المجلات للترقيات الأكاديمية.</p>
+            
+            <h4>📊 مستويات المجلات في سكوبس (معاملات التأثير)</h4>
             <div class="scopus-grid">
-                <div class="scopus-level"><h4>Q1 (الربع الأول)</h4></div>
-                <div class="scopus-level"><h4>Q2 (الربع الثاني)</h4></div>
-                <div class="scopus-level"><h4>Q3 (الربع الثالث)</h4></div>
-                <div class="scopus-level"><h4>Q4 (الربع الرابع)</h4></div>
+                <div class="scopus-level">
+                    <h4>Q1 (الربع الأول)</h4>
+                    <p style="font-size: 13px; color: var(--text-muted);">المجلات الأعلى تأثيراً والأكثر استشهاداً.</p>
+                </div>
+                <div class="scopus-level">
+                    <h4>Q2 (الربع الثاني)</h4>
+                    <p style="font-size: 13px; color: var(--text-muted);">مجلات قوية ذات جودة وموثوقية عالية.</p>
+                </div>
+                <div class="scopus-level">
+                    <h4>Q3 (الربع الثالث)</h4>
+                    <p style="font-size: 13px; color: var(--text-muted);">مجلات متوسطة التأثير، تعتبر نقطة انطلاق مناسبة.</p>
+                </div>
+                <div class="scopus-level">
+                    <h4>Q4 (الربع الرابع)</h4>
+                    <p style="font-size: 13px; color: var(--text-muted);">المجلات الأحدث أو الأقل تأثيراً، وتتميز بقبول أسهل.</p>
+                </div>
             </div>
+
+            <h4>📋 شروط النشر لضمان قبول بحثك</h4>
+            <ol>
+                <li><strong>الأصالة:</strong> أن يقدم البحث إضافة جديدة ولم يسبق نشره.</li>
+                <li><strong>الارتباط:</strong> أن يقع موضوع البحث ضمن دائرة اهتمام المجلة.</li>
+                <li><strong>الدقة المنهجية:</strong> وضوح الأهداف، وسلامة الإطار النظري والفرضيات.</li>
+                <li><strong>اللغة:</strong> تُنشر الأبحاث بالإنجليزية لضمان مطابقة المعايير العلمية.</li>
+            </ol>
         </div>
 
+        <!-- فريق العمل كاملاً وبدون اختصار -->
         <h3 class="section-title" id="team"><i class="fas fa-users"></i> إدارة المؤسسة وفريق العمل</h3>
+        <p style="color: var(--text-muted);">تشتمل المؤسسة على فريق عمل أكاديمي متخصص في النشر العلمي لتحقيق أهداف المؤسسة ورغبة الباحثين:</p>
         <div class="team-grid">
             <div class="team-card">
                 <h4>د. بسام حسن مهرة</h4>
@@ -513,10 +603,42 @@
                 <p>نائب الرئيس</p>
                 <span class="flag">🪪 تركيا</span>
             </div>
+            <div class="team-card">
+                <h4>أ. غيداء بسام مهرة</h4>
+                <p>سكرتاريا</p>
+                <span class="flag">🪪 فلسطين</span>
+            </div>
+            <div class="team-card">
+                <h4>د. هيلة بنت تركي القحطاني</h4>
+                <p>عضو الهيئة الإدارية</p>
+                <span class="flag">🪪 السعودية</span>
+            </div>
+            <div class="team-card">
+                <h4>د. سلوى بنت محمد العامري</h4>
+                <p>عضو الهيئة الإدارية</p>
+                <span class="flag">🪪 قطر</span>
+            </div>
+            <div class="team-card">
+                <h4>د. ميسون بنت عبدالله العنزي</h4>
+                <p>عضو الهيئة الإدارية</p>
+                <span class="flag">🪪 السعودية</span>
+            </div>
         </div>
+
+        <!-- الاعتمادات الدولية كاملاً وبدون اختصار -->
+        <h3 class="section-title" id="credentials"><i class="fas fa-award"></i> الاعتمادات والروابط الدولية للمؤسسة</h3>
+        <div class="card">
+            <p><strong>💼 شراكات مؤسسية:</strong> ترتبط سكوبس بشراكات مع آلاف الجامعات، والمؤسسات الأكاديمية، والوزارات، والمجالس البحثية حول العالم. تعتمد هذه المؤسسات على مؤشرات سكوبس (مثل CiteScore و h-index) كمعيار رئيسي في تصنيف الجامعات دولياً وتقييم جودة وترقية الباحثين.</p>
+            <p><strong>📜 الاعتماد الذاتي:</strong> تعتمد سكوبس نفسها كمرجع عالمي موثوق، وتُستخدم مقاييسها من قبل هيئات منح الدرجات العلمية ووكالات التمويل البحثي في عدد كبير من الدول.</p>
+            <p><strong>💡 ربط براءات الاختراع:</strong> ترتبط سكوبس بقواعد بيانات براءات الاختراع الدولية لتعزيز البحث الشامل، مثل: مكتب براءات الاختراع والعلامات التجارية الأمريكي (USPTO)، المكتب الأوروبي للبراءات (EPO)، مكتب براءات الاختراع الياباني (JPO)، والمنظمة العالمية للملكية الفكرية (WIPO).</p>
+        </div>
+
     </div>
 
+    <!-- الفوتر الأكاديمي -->
     <footer id="contact">
+        <p><strong>📞 تواصل معنا الآن</strong></p>
+        <p>يسعدنا استقبال مسودات أبحاثكم واستفساراتكم على مدار الساعة</p>
         <div class="footer-contacts">
             <a href="https://wa.me/972599239760" target="_blank"><i class="fab fa-whatsapp"></i> +972 599 239 760</a>
             <a href="mailto:scopusjournals.sij@gmail.com"><i class="fas fa-envelope"></i> scopusjournals.sij@gmail.com</a>
