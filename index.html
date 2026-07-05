@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>المؤسسة الدولية للنشر العلمي | ISPF</title>
-    <!-- خطوط مريحة للعين -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- أيقونات FontAwesome للمظهر الأكاديمي -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -18,7 +16,6 @@
             --text-dark: #2c3e50;
             --text-muted: #566573;
             --whatsapp-green: #25d366;
-            --q1-color: #196f3d;
         }
 
         body {
@@ -31,7 +28,7 @@
             scroll-behavior: smooth;
         }
 
-        /* الهيدر والقائمة الجانبية */
+        /* الهيدر وشريط التنقل */
         header {
             background-color: var(--bg-card);
             padding: 15px 30px;
@@ -62,14 +59,23 @@
         }
 
         .burger-btn {
-            font-size: 24px;
+            font-size: 20px;
             cursor: pointer;
             color: var(--primary-blue);
             background: none;
-            border: none;
+            border: 1px solid #d5dbdb;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 600;
+            transition: 0.2s;
         }
 
-        /* Sidebar القائمة الجانبية */
+        .burger-btn:hover {
+            background-color: #ebf5fb;
+        }
+
+        /* Sidebar القائمة الجانبية بنظام البرجر */
         .sidebar {
             position: fixed;
             top: 0;
@@ -81,6 +87,7 @@
             transition: 0.3s ease;
             z-index: 2000;
             padding: 20px;
+            box-sizing: border-box;
         }
 
         .sidebar.active {
@@ -103,7 +110,7 @@
         }
 
         .sidebar ul li {
-            margin: 20px 0;
+            margin: 15px 0;
         }
 
         .sidebar ul li a {
@@ -136,7 +143,7 @@
             display: block;
         }
 
-        /* الحاوية الرئيسية */
+        /* الحاوية وتنسيق العناصر */
         .container {
             max-width: 1100px;
             margin: 30px auto;
@@ -164,7 +171,7 @@
             color: var(--text-dark);
         }
 
-        /* زر الواتساب الثابت والسريع */
+        /* زر الواتساب */
         .whatsapp-btn {
             display: inline-flex;
             align-items: center;
@@ -187,7 +194,7 @@
             font-size: 20px;
         }
 
-        /* الأقسام والمربعات */
+        /* العناوين والأقسام */
         .section-title {
             color: var(--primary-blue);
             border-bottom: 2px solid #eaeded;
@@ -206,7 +213,7 @@
             margin-bottom: 20px;
         }
 
-        /* قسم الإعلانات والمكتبة */
+        /* صندوق الإعلانات اليومية */
         .announcement-box {
             background-color: #fef9e7;
             border: 1px dashed #f4d03f;
@@ -214,7 +221,12 @@
             border-radius: 8px;
             margin-bottom: 25px;
         }
+        .announcement-box p {
+            margin: 5px 0;
+            line-height: 1.6;
+        }
 
+        /* شبكة المكتبة الرقمية */
         .library-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -229,6 +241,12 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.01);
+        }
+
+        .download-item h4 {
+            margin: 0 0 10px 0;
+            color: var(--primary-blue);
         }
 
         .btn-download {
@@ -240,9 +258,14 @@
             border-radius: 5px;
             margin-top: 15px;
             font-size: 14px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+        .btn-download:hover {
+            background-color: var(--primary-blue);
         }
 
-        /* شبكة مستويات سكوبس وشروط النشر */
+        /* شبكة مستويات سكوبس */
         .scopus-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -251,12 +274,11 @@
         }
 
         .scopus-level {
-            background: var(--bg-card);
+            background: var(--bg-main);
             padding: 15px;
             border-radius: 6px;
             text-align: center;
             border-top: 4px solid var(--primary-blue);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
         }
 
         .scopus-level h4 {
@@ -264,7 +286,7 @@
             color: var(--primary-blue);
         }
 
-        /* فريق العمل */
+        /* شبكة فريق العمل */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -317,12 +339,12 @@
             color: var(--accent-blue);
             text-decoration: none;
             margin: 0 15px;
+            font-weight: 600;
         }
     </style>
 </head>
 <body>
 
-    <!-- الهيدر الرئيسي -->
     <header>
         <div class="brand">
             <h1>المؤسسة الدولية للنشر العلمي</h1>
@@ -331,54 +353,48 @@
         <button class="burger-btn" onclick="toggleSidebar()">☰ قائمة الموقع</button>
     </header>
 
-    <!-- القائمة الجانبية (Sidebar) -->
     <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
     <div class="sidebar" id="sidebar">
         <button class="close-btn" onclick="toggleSidebar()"><i class="fas fa-times"></i></button>
         <ul>
-            <li><a href="#about" onclick="toggleSidebar()">🎯 أهدافنا ورؤيتنا</a></li>
+            <li><a href="#about" onclick="toggleSidebar()">🎯 هدفنا ورؤيتنا</a></li>
             <li><a href="#announcements" onclick="toggleSidebar()">📢 إعلاناتنا اليومية</a></li>
             <li><a href="#library" onclick="toggleSidebar()">📚 المكتبة الرقمية</a></li>
             <li><a href="#scopus" onclick="toggleSidebar()">✨ النشر في سكوباس</a></li>
             <li><a href="#team" onclick="toggleSidebar()">👥 فريق العمل</a></li>
             <li><a href="#credentials" onclick="toggleSidebar()">🤝 الاعتمادات الدولية</a></li>
-            <li><a href="#contact" onclick="toggleSidebar()">📞 تواصل معنا</a></li>
-            <li><a href="admin.html" style="color: red;">🔑 لوحة الإدارة</a></li>
+            <li><a href="#contact" onclick="toggleSidebar()">📞 اتصل بنا</a></li>
+            <li><a href="admin.html" style="color: #cb4335;"><i class="fas fa-user-cog"></i> لوحة الإدارة</a></li>
         </ul>
     </div>
 
     <div class="container">
         
-        <!-- قسم الوصف والتعريف الرئسي -->
         <section class="hero" id="about">
-            <h2>مرحباً بكم في المؤسسة الدولية للنشر العلمي</h2>
+            <h2>المؤسسة الدولية للنشر العلمي</h2>
             <p>مؤسسة بحثية أكاديمية متخصصة، نعمل بشكل إلكتروني على نطاق واسع لمساعدة الباحثين وطلبة الدراسات العليا في نشر بحوثهم في أرقى المجلات العالمية لجميع الاختصاصات.</p>
             <a href="https://wa.me/972599239760" class="whatsapp-btn" target="_blank">
                 <i class="fab fa-whatsapp"></i> تواصل معنا عبر الواتساب
             </a>
         </section>
 
-        <!-- قسم الإعلانات اليومية -->
         <h3 class="section-title" id="announcements">📢 إعلاناتنا اليومية</h3>
         <div class="announcement-box" id="announcementsContainer">
-            <p>📌 أهلاً بكم في منصتنا. هنا سيتم نشر الإعلانات وورش العمل القادمة بشكل دوري من قبل الإدارة.</p>
+            <p>📌 أهلاً بكم في منصتنا. الإعلانات والورش العلمية المحدثة تظهر هنا فور نشرها من قبل الإدارة.</p>
         </div>
 
-        <!-- المكتبة الرقمية ومركز التحميل -->
         <h3 class="section-title" id="library">📚 المكتبة الرقمية ومركز تحميل الملفات</h3>
-        <p style="color: var(--text-muted);">تصفح وحمل أحدث المجلات العلمية، شروط النشر المحدثة، الأدلة الأكاديمية، والنماذج المرفوعة مباشرة من الإدارة:</p>
+        <p style="color: var(--text-muted); margin-bottom: 20px;">تصفح وحمل أحدث المجلات العلمية، شروط النشر المحدثة، الأدلة الأكاديمية، والنماذج المرفوعة مباشرة من الإدارة:</p>
         <div class="library-grid" id="libraryContainer">
-            <!-- الملفات المرفوعة ستظهر هنا -->
             <div class="download-item">
                 <div>
-                    <h4>دليل الباحث لتجهيز الأوراق العلمية</h4>
-                    <p style="font-size: 13px; color: var(--text-muted);">الملف يحتوي على المعايير الأساسية لتنسيق الهوامش والمراجع.</p>
+                    <h4>دليل المعايير الأكاديمية وشروط النشر</h4>
+                    <p style="font-size: 13px; color: var(--text-muted);">الملف الأساسي المعتمد لتوثيق المراجع والسرقات العلمية.</p>
                 </div>
                 <a href="#" class="btn-download"><i class="fas fa-download"></i> تحميل الملف (PDF)</a>
             </div>
         </div>
 
-        <!-- الرؤية والرسالة والتأسيس -->
         <h3 class="section-title">🧭 التوجهات والأهداف الاستراتيجية</h3>
         <div class="card">
             <h4>🎯 هدفنا ورؤيتنا</h4>
@@ -399,7 +415,6 @@
             <p>تقوم المؤسسة بنشر الأبحاث في جميع الاختصاصات وفهرستها، وهي مؤسسة أكاديمية تُقدِّم خدمات البحث العلمي عبر مجموعة متميّزة من المجلات العلمية المُحكَّمة، ويُشرف عليها كادر من العلماء والأكاديميين.</p>
         </div>
 
-        <!-- قسم سكوباس ومستويات المجلات -->
         <h3 class="section-title" id="scopus">✨ النشر في سكوباس (Scopus)</h3>
         <div class="card">
             <p><strong>ما هي سكوباس؟</strong> قاعدة بيانات عالمية ضخمة تضم آلاف المجلات العلمية المُحكّمة وتُعد المعيار الأساسي لتقييم جودة الأبحاث، واعتماد المجلات للترقيات الأكاديمية.</p>
@@ -408,19 +423,19 @@
             <div class="scopus-grid">
                 <div class="scopus-level">
                     <h4>Q1 (الربع الأول)</h4>
-                    <p style="font-size: 13px;">المجلات الأعلى تأثيراً والأكثر استشهاداً.</p>
+                    <p style="font-size: 13px; color: var(--text-muted);">المجلات الأعلى تأثيراً والأكثر استشهاداً.</p>
                 </div>
                 <div class="scopus-level">
                     <h4>Q2 (الربع الثاني)</h4>
-                    <p style="font-size: 13px;">مجلات قوية ذات جودة وموثوقية عالية.</p>
+                    <p style="font-size: 13px; color: var(--text-muted);">مجلات قوية ذات جودة وموثوقية عالية.</p>
                 </div>
                 <div class="scopus-level">
                     <h4>Q3 (الربع الثالث)</h4>
-                    <p style="font-size: 13px;">مجلات متوسطة التأثير، تعتبر نقطة انطلاق مناسبة.</p>
+                    <p style="font-size: 13px; color: var(--text-muted);">مجلات متوسطة التأثير، تعتبر نقطة انطلاق مناسبة.</p>
                 </div>
                 <div class="scopus-level">
                     <h4>Q4 (الربع الرابع)</h4>
-                    <p style="font-size: 13px;">المجلات الأحدث أو الأقل تأثيراً، وتتميز بقبول أسهل.</p>
+                    <p style="font-size: 13px; color: var(--text-muted);">المجلات الأحدث أو الأقل تأثيراً، وتتميز بقبول أسهل.</p>
                 </div>
             </div>
 
@@ -433,8 +448,8 @@
             </ol>
         </div>
 
-        <!-- فريق العمل والادارة -->
         <h3 class="section-title" id="team">👥 إدارة المؤسسة وفريق العمل</h3>
+        <p style="color: var(--text-muted);">تشتمل المؤسسة على فريق عمل أكاديمي متخصص في النشر العلمي لتحقيق أهداف المؤسسة ورغبة الباحثين:</p>
         <div class="team-grid">
             <div class="team-card">
                 <h4>د. بسام حسن مهرة</h4>
@@ -468,35 +483,68 @@
             </div>
         </div>
 
-        <!-- الاعتمادات والروابط الدولية -->
         <h3 class="section-title" id="credentials">🤝 الاعتمادات والروابط الدولية للمؤسسة</h3>
         <div class="card">
             <p><strong>💼 شراكات مؤسسية:</strong> ترتبط سكوبس بشراكات مع آلاف الجامعات، والمؤسسات الأكاديمية، والوزارات، والمجالس البحثية حول العالم. تعتمد هذه المؤسسات على مؤشرات سكوبس (مثل CiteScore و h-index) كمعيار رئيسي في تصنيف الجامعات دولياً (مثل تصنيف QS) وتقييم جودة وترقية الباحثين.</p>
             <p><strong>📜 الاعتماد الذاتي:</strong> تعتمد سكوبس نفسها كمرجع عالمي موثوق، وتُستخدم مقاييسها من قبل هيئات منح الدرجات العلمية ووكالات التمويل البحثي في عدد كبير من الدول.</p>
-            <p><strong>💡 ربط براءات الاختراع:</strong> ترتبط سكوبس بقواعد بيانات براءات الاختراع الدولية لتعزيز البحث الشامل، مثل (USPTO, EPO, JPO, WIPO).</p>
+            <p><strong>💡 ربط براءات الاختراع:</strong> ترتبط سكوبس بقواعد بيانات براءات الاختراع الدولية لتعزيز البحث الشامل، مثل: مكتب براءات الاختراع والعلامات التجارية الأمريكي (USPTO)، المكتب الأوروبي للبراءات (EPO)، مكتب براءات الاختراع الياباني (JPO)، والمنظمة العالمية للملكية الفكرية (WIPO).</p>
         </div>
 
     </div>
 
-    <!-- الفوتر وقنوات الاتصال -->
     <footer id="contact">
         <p><strong>📞 تواصل معنا الآن</strong></p>
         <p>يسعدنا استقبال مسودات أبحاثكم واستفساراتكم على مدار الساعة</p>
         <div class="footer-contacts">
-            <a href="https://wa.me/972599239760"><i class="fab fa-whatsapp"></i> +972 599 239 760</a> | 
+            <a href="https://wa.me/972599239760" target="_blank"><i class="fab fa-whatsapp"></i> +972 599 239 760</a> | 
             <a href="mailto:scopusjournals.sij@gmail.com"><i class="fas fa-envelope"></i> scopusjournals.sij@gmail.com</a>
         </div>
         <p>&copy; 2026 جميع الحقوق محفوظة للمؤسسة الدولية للنشر العلمي (ISPF).</p>
     </footer>
 
-    <!-- سكربت جافا سكريبت لتشغيل القائمة الجانبية -->
     <script>
+        // تشغيل وإغلاق القائمة الجانبية للبرجر
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
             const overlay = document.getElementById('overlay');
             sidebar.classList.toggle('active');
             overlay.classList.toggle('active');
         }
+
+        // قراءة البيانات ديناميكياً من لوحة التحكم وعرضها
+        function loadMainData() {
+            const announcements = JSON.parse(localStorage.getItem('announcements')) || [];
+            const library = JSON.parse(localStorage.getItem('library')) || [];
+            
+            const annContainer = document.getElementById('announcementsContainer');
+            const libContainer = document.getElementById('libraryContainer');
+
+            // عرض التحديثات الجديدة للإعلانات اليومية في حال وجودها
+            if(announcements.length > 0) {
+                annContainer.innerHTML = '';
+                announcements.forEach(ann => {
+                    annContainer.innerHTML += `<p>📌 ${ann}</p>`;
+                });
+            }
+
+            // عرض ملفات ومجلات المكتبة الرقمية فور رفعها
+            if(library.length > 0) {
+                libContainer.innerHTML = '';
+                library.forEach(item => {
+                    libContainer.innerHTML += `
+                        <div class="download-item">
+                            <div>
+                                <h4>${item.title}</h4>
+                                <p style="font-size: 13px; color: var(--text-muted);">${item.desc}</p>
+                            </div>
+                            <a href="${item.url}" target="_blank" class="btn-download"><i class="fas fa-download"></i> تحميل الملف</a>
+                        </div>`;
+                });
+            }
+        }
+
+        // تشغيل الجلب فور تحميل الصفحة للزائر
+        window.onload = loadMainData;
     </script>
 </body>
 </html>
