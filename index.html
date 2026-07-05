@@ -9,26 +9,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-:root {
-    --bg-main: #f0f4f8; /* خلفية موقع زاهية وقريبة من الأزرق الأكاديمي */
-    --bg-card: #ffffff;
-    --primary-blue: #0f3a5f; 
-    --accent-blue: #1d639b;
-    --gold-accent: #b8860b; 
-    --text-dark: #1a252f;
-    --text-muted: #5a6b7c;
-    --whatsapp-green: #25d366;
-}
+        :root {
+            --bg-main: #f0f4f8; /* خلفية موقع زاهية وقريبة من الأزرق الأكاديمي */
+            --bg-card: #ffffff;
+            --primary-blue: #0f3a5f; 
+            --accent-blue: #1d639b;
+            --gold-accent: #b8860b; 
+            --text-dark: #1a252f;
+            --text-muted: #5a6b7c;
+            --whatsapp-green: #25d366;
+        }
 
-body {
-    font-family: 'Cairo', sans-serif;
-    background-color: var(--bg-main);
-    color: var(--text-dark);
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         /* الهيدر المطور والموزع بشكل متناسق */
@@ -176,14 +175,14 @@ body {
             padding: 0 20px;
         }
 
-        /* البانر التعريفي الرئيسي */
+        /* البانر التعريفي الرئيسي المطور بحسب متطلباتك */
         .hero {
-            background: linear-gradient(135deg, #ffffff 0%, #f7fafc 100%);
-            padding: 50px 40px;
+            background: linear-gradient(135deg, #0f3a5f 0%, #175080 100%); /* خلفية أزرق أكاديمي فخم زاهي */
+            padding: 60px 40px;
             border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
-            border-right: 6px solid var(--gold-accent);
+            box-shadow: 0 10px 30px rgba(15, 58, 95, 0.15);
             margin-bottom: 40px;
+            text-align: center; /* توسيط كامل لجميع العناصر بالداخل */
             position: relative;
             overflow: hidden;
         }
@@ -192,26 +191,28 @@ body {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 150px; height: 150px;
-            background: radial-gradient(circle, rgba(29,99,155,0.05) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
         }
 
         .hero h2 {
-            color: var(--primary-blue);
-            font-size: 28px;
+            color: #ffffff; /* نص أبيض ليبرز بوضوح فوق الأزرق */
+            font-size: 32px;
             margin-top: 0;
             font-weight: 700;
         }
 
         .hero p {
-            font-size: 16.5px;
-            line-height: 1.9;
-            color: var(--text-dark);
-            max-width: 850px;
+            font-size: 18px;
+            line-height: 2;
+            color: #e2e8f0; /* لون فاتح متناسق ومريح للقراءة */
+            max-width: 800px;
+            margin: 20px auto; /* لتوسيط الفقرة في المنتصف تماماً */
         }
 
         .whatsapp-btn {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             background-color: var(--whatsapp-green);
             color: white;
             padding: 12px 28px;
@@ -219,7 +220,7 @@ body {
             text-decoration: none;
             font-weight: 700;
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.25);
-            margin-top: 20px;
+            margin-top: 15px;
             transition: all 0.3s ease;
         }
         .whatsapp-btn:hover {
@@ -473,7 +474,7 @@ body {
 
     <div class="container">
         
-        <!-- البانر التعريفي الفني -->
+        <!-- البانر التعريفي الفني (محدث وموسط بالكامل) -->
         <section class="hero" id="about">
             <h2>المؤسسة الدولية للنشر العلمي</h2>
             <p>مؤسسة بحثية أكاديمية متخصصة، نعمل بشكل إلكتروني على نطاق واسع لمساعدة الباحثين وطلبة الدراسات العليا في نشر بحوثهم في أرقى المجلات العالمية لجميع الاختصاصات.</p>
