@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>المؤسسة الدولية للنشر العلمي | ISPF</title>
-    <!-- خطوط مريحة للعين وفخمة للقراءة الأكاديمية -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -71,10 +70,19 @@
             transform: translateY(-1px);
         }
 
-        /* اسم المؤسسة في المنتصف تماماً */
+        /* اسم المؤسسة والشعار في المنتصف تماماً */
         .brand {
             grid-column: 2;
             text-align: center;
+        }
+
+        /* تنسيق الشعار الموسط */
+        .site-logo {
+            max-height: 70px; /* الارتفاع المثالي لعدم تشويه الهيدر */
+            width: auto;
+            display: block;
+            margin: 0 auto 10px auto; /* توسيط الشعار وإضافة مسافة تحته */
+            object-fit: contain;
         }
 
         .brand h1 {
@@ -442,13 +450,13 @@
 </head>
 <body>
 
-    <!-- الهيدر المطور (برجر يمين - عنوان موسط) -->
     <header>
         <div class="burger-container">
             <button class="burger-btn" onclick="toggleSidebar()">☰ قائمة الموقع</button>
         </div>
         
         <div class="brand">
+            <img src="logo.png" alt="شعار المؤسسة الدولية للنشر العلمي" class="site-logo">
             <h1>المؤسسة الدولية للنشر العلمي</h1>
             <span>International Scientific Publishing Foundation</span>
         </div>
@@ -456,7 +464,6 @@
         <div class="header-empty-space"></div>
     </header>
 
-    <!-- القائمة الجانبية المنسدلة (Right Sidebar) -->
     <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
     <div class="sidebar" id="sidebar">
         <button class="close-btn" onclick="toggleSidebar()"><i class="fas fa-times"></i></button>
@@ -474,7 +481,6 @@
 
     <div class="container">
         
-        <!-- البانر التعريفي الفني (محدث وموسط بالكامل) -->
         <section class="hero" id="about">
             <h2>المؤسسة الدولية للنشر العلمي</h2>
             <p>مؤسسة بحثية أكاديمية متخصصة، نعمل بشكل إلكتروني على نطاق واسع لمساعدة الباحثين وطلبة الدراسات العليا في نشر بحوثهم في أرقى المجلات العالمية لجميع الاختصاصات.</p>
@@ -483,13 +489,11 @@
             </a>
         </section>
 
-        <!-- قسم الإعلانات اليومية -->
         <h3 class="section-title" id="announcements"><i class="fas fa-bullhorn"></i> إعلاناتنا اليومية</h3>
         <div class="announcement-box" id="announcementsContainer">
             <p>📌 أهلاً بكم في منصتنا. الإعلانات والورش العلمية المحدثة تظهر هنا فور نشرها من قبل الإدارة.</p>
         </div>
 
-        <!-- المكتبة الرقمية -->
         <h3 class="section-title" id="library"><i class="fas fa-book-open"></i> المكتبة الرقمية ومركز تحميل الملفات</h3>
         <p style="color: var(--text-muted); margin-bottom: 25px;">تصفح وحمل أحدث المجلات العلمية، شروط النشر المحدثة، الأدلة الأكاديمية، والنماذج المرفوعة مباشرة من الإدارة:</p>
         <div class="library-grid" id="libraryContainer">
@@ -502,7 +506,6 @@
             </div>
         </div>
 
-        <!-- الأهداف والنشأة -->
         <h3 class="section-title"><i class="fas fa-compass"></i> التوجهات والأهداف الاستراتيجية</h3>
         <div class="card">
             <h4>🎯 هدفنا ورؤيتنا</h4>
@@ -523,7 +526,6 @@
             <p>تقوم المؤسسة بنشر الأبحاث في جميع الاختصاصات وفهرستها، وهي مؤسسة أكاديمية تُقدِّم خدمات البحث العلمي عبر مجموعة متميّزة من المجلات العلمية المُحكَّمة، ويُشرف عليها كادر من العلماء والأكاديميين.</p>
         </div>
 
-        <!-- قسم سكوباس -->
         <h3 class="section-title" id="scopus"><i class="fas fa-graduation-cap"></i> النشر في سكوباس (Scopus)</h3>
         <div class="card">
             <p><strong>ما هي سكوباس؟</strong> قاعدة بيانات عالمية ضخمة تضم آلاف المجلات العلمية المُحكّمة وتُعد المعيار الأساسي لتقييم جودة الأبحاث، واعتماد المجلات للترقيات الأكاديمية.</p>
@@ -557,7 +559,6 @@
             </ol>
         </div>
 
-        <!-- فريق العمل -->
         <h3 class="section-title" id="team"><i class="fas fa-users"></i> إدارة المؤسسة وفريق العمل</h3>
         <p style="color: var(--text-muted);">تشتمل المؤسسة على فريق عمل أكاديمي متخصص في النشر العلمي لتحقيق أهداف المؤسسة ورغبة الباحثين:</p>
         <div class="team-grid">
@@ -593,7 +594,6 @@
             </div>
         </div>
 
-        <!-- الاعتمادات الدولية -->
         <h3 class="section-title" id="credentials"><i class="fas fa-award"></i> الاعتمادات والروابط الدولية للمؤسسة</h3>
         <div class="card">
             <p><strong>💼 شراكات مؤسسية:</strong> ترتبط سكوبس بشراكات مع آلاف الجامعات، والمؤسسات الأكاديمية، والوزارات، والمجالس البحثية حول العالم. تعتمد هذه المؤسسات على مؤشرات سكوبس (مثل CiteScore و h-index) كمعيار رئيسي في تصنيف الجامعات دولياً وتقييم جودة وترقية الباحثين.</p>
@@ -603,7 +603,6 @@
 
     </div>
 
-    <!-- الفوتر الأكاديمي -->
     <footer id="contact">
         <p><strong>📞 تواصل معنا الآن</strong></p>
         <p>يسعدنا استقبال مسودات أبحاثكم واستفساراتكم على مدار الساعة</p>
