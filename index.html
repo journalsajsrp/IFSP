@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>المؤسسة الدولية للنشر العلمي | ISPF</title>
-    <!-- خطوط مريحة للعين وفخمة للقراءة الأكاديمية -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -35,7 +34,7 @@
             background-color: var(--bg-card);
             padding: 15px 40px;
             display: flex;
-            justify-content: space-between; /* يدفع الشعار لليمين والزر لليسار */
+            justify-content: space-between; 
             align-items: center;
             box-shadow: 0 4px 20px rgba(15, 58, 95, 0.06);
             position: sticky;
@@ -44,14 +43,14 @@
             border-bottom: 4px solid var(--primary-blue);
         }
 
-        /* حاوية الشعار والنص (ثابتة على اليمين) */
+        /* حاوية الشعار والنص */
         .brand-container {
             display: flex;
             align-items: center;
             gap: 20px; 
         }
 
-        /* الشعار كبير وواضح جداً */
+        /* الشعار الافتراضي القديم للموقع */
         .site-logo {
             max-height: 90px; 
             width: auto;
@@ -82,9 +81,9 @@
             margin-top: 4px;
         }
 
-        /* حاوية زر القائمة (ثابتة على اليسار / الشمال) */
+        /* حاوية زر القائمة */
         .burger-container {
-            order: 2; /* يضمن بقاء الزر يساراً في نظام الترتيب */
+            order: 2; 
         }
 
         .burger-btn {
@@ -110,7 +109,47 @@
             transform: translateY(-1px);
         }
 
-        /* شاشات الجوال والأجهزة الصغيرة (تجاوب تلقائي متكامل) */
+        /* نظام شبكة الصور (خاص بقسم سكوباس - 3 صور متجاوبة) */
+        .scopus-images-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .scopus-images-grid img {
+            width: 100%;
+            height: auto;
+            max-height: 220px;
+            object-fit: contain;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+
+        /* قائمة الصور المخصصة لقسم الاعتمادات (5 صور مرتبة) */
+        .credentials-images-list {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-top: 30px;
+            align-items: center;
+        }
+
+        .credentials-images-list img {
+            max-width: 100%;
+            height: auto;
+            max-height: 300px;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            background: #ffffff;
+            padding: 5px;
+            border: 1px solid #eef2f6;
+        }
+
+        /* شاشات الجوال والأجهزة الصغيرة */
         @media (max-width: 768px) {
             header {
                 padding: 12px 15px; 
@@ -121,7 +160,7 @@
             }
 
             .site-logo {
-                max-height: 60px; /* حجم الشعار في الجوال */
+                max-height: 60px; 
             }
 
             .brand-text h1 {
@@ -136,9 +175,13 @@
                 padding: 8px 12px;
                 font-size: 13px;
             }
+            
+            .credentials-images-list img {
+                max-height: 200px;
+            }
         }
 
-        /* القائمة الجانبية (الـ Sidebar يظهر من اليمين بشكل أنيق عند النقر) */
+        /* القائمة الجانبية */
         .sidebar {
             position: fixed;
             top: 0;
@@ -206,14 +249,12 @@
 
         .overlay.active { display: block; }
 
-        /* الحاوية وتنسيق الأقسام الفنية */
         .container {
             max-width: 1140px;
             margin: 40px auto;
             padding: 0 20px;
         }
 
-        /* البانر التعريفي الرئيسي */
         .hero {
             background: linear-gradient(135deg, #0f3a5f 0%, #175080 100%); 
             padding: 60px 40px;
@@ -260,7 +301,6 @@
         }
         .whatsapp-btn i { margin-left: 10px; font-size: 20px; }
 
-        /* العناوين الأكاديمية الواضحة */
         .section-title {
             color: var(--primary-blue);
             font-size: 22px;
@@ -316,7 +356,6 @@
 
         .card li { margin-bottom: 8px; }
 
-        /* صندوق الإعلانات اليومية المشرق */
         .announcement-box {
             background: linear-gradient(to left, #fffdf5, #ffffff);
             border-right: 4px solid #f1c40f;
@@ -329,7 +368,6 @@
             box-shadow: 0 4px 12px rgba(241, 196, 15, 0.04);
         }
 
-        /* شبكة تحميل الملفات */
         .library-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -374,7 +412,6 @@
         }
         .btn-download:hover { background-color: var(--primary-blue); }
 
-        /* أرباع سكوبس */
         .scopus-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
@@ -405,7 +442,6 @@
         }
         .scopus-level h4::before { content: none; }
 
-        /* فريق العمل الدولي */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -439,7 +475,6 @@
             font-weight: 600;
         }
 
-        /* الفوتر */
         footer {
             background-color: var(--primary-blue);
             color: #ffffff;
@@ -473,7 +508,6 @@
 </head>
 <body>
 
-    <!-- الهيدر المطور (يمين: شعار موسط واسم / شمال: قائمة الموقع) -->
     <header>
         <div class="brand-container">
             <img src="logo.png" alt="شعار المؤسسة الدولية للنشر العلمي" class="site-logo">
@@ -488,7 +522,6 @@
         </div>
     </header>
 
-    <!-- القائمة الجانبية المنسدلة -->
     <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
     <div class="sidebar" id="sidebar">
         <button class="close-btn" onclick="toggleSidebar()"><i class="fas fa-times"></i></button>
@@ -506,7 +539,6 @@
 
     <div class="container">
         
-        <!-- البانر التعريفي الرئيسي المطور -->
         <section class="hero" id="about">
             <h2>المؤسسة الدولية للنشر العلمي</h2>
             <p>مؤسسة بحثية أكاديمية متخصصة، نعمل بشكل إلكتروني على نطاق واسع لمساعدة الباحثين وطلبة الدراسات العليا في نشر بحوثهم في أرقى المجلات العالمية لجميع الاختصاصات.</p>
@@ -515,13 +547,11 @@
             </a>
         </section>
 
-        <!-- قسم الإعلانات اليومية -->
         <h3 class="section-title" id="announcements"><i class="fas fa-bullhorn"></i> إعلاناتنا اليومية</h3>
         <div class="announcement-box" id="announcementsContainer">
             <p>📌 أهلاً بكم في منصتنا. الإعلانات والورش العلمية المحدثة تظهر هنا فور نشرها من قبل الإدارة.</p>
         </div>
 
-        <!-- المكتبة الرقمية -->
         <h3 class="section-title" id="library"><i class="fas fa-book-open"></i> المكتبة الرقمية ومركز تحميل الملفات</h3>
         <p style="color: var(--text-muted); margin-bottom: 25px;">تصفح وحمل أحدث المجلات العلمية، شروط النشر المحدثة، الأدلة الأكاديمية، والنماذج المرفوعة مباشرة من الإدارة:</p>
         <div class="library-grid" id="libraryContainer">
@@ -534,7 +564,6 @@
             </div>
         </div>
 
-        <!-- الأهداف والنشأة -->
         <h3 class="section-title"><i class="fas fa-compass"></i> التوجهات والأهداف الاستراتيجية</h3>
         <div class="card">
             <h4>🎯 هدفنا ورؤيتنا</h4>
@@ -555,11 +584,16 @@
             <p>تقوم المؤسسة بنشر الأبحاث في جميع الاختصاصات وفهرستها، وهي مؤسسة أكاديمية تُقدِّم خدمات البحث العلمي عبر مجموعة متميّزة من المجلات العلمية المُحكَّمة، ويُشرف عليها كادر من العلماء والأكاديميين.</p>
         </div>
 
-        <!-- قسم سكوباس كاملاً وبدون اختصار -->
         <h3 class="section-title" id="scopus"><i class="fas fa-graduation-cap"></i> النشر في سكوباس (Scopus)</h3>
         <div class="card">
             <p><strong>ما هي سكوباس?</strong> قاعدة بيانات عالمية ضخمة تضم آلاف المجلات العلمية المُحكّمة وتُعد المعيار الأساسي لتقييم جودة الأبحاث، واعتماد المجلات للترقيات الأكاديمية.</p>
             
+            <div class="scopus-images-grid">
+                <img src="Logo1.jpeg" alt="سكوباس 1">
+                <img src="Logo2.jpeg" alt="سكوباس 2">
+                <img src="Logo3.jpeg" alt="سكوباس 3">
+            </div>
+
             <h4>📊 مستويات المجلات في سكوبس (معاملات التأثير)</h4>
             <div class="scopus-grid">
                 <div class="scopus-level">
@@ -589,7 +623,6 @@
             </ol>
         </div>
 
-        <!-- فريق العمل كاملاً وبدون اختصار -->
         <h3 class="section-title" id="team"><i class="fas fa-users"></i> إدارة المؤسسة وفريق العمل</h3>
         <p style="color: var(--text-muted);">تشتمل المؤسسة على فريق عمل أكاديمي متخصص في النشر العلمي لتحقيق أهداف المؤسسة ورغبة الباحثين:</p>
         <div class="team-grid">
@@ -625,17 +658,23 @@
             </div>
         </div>
 
-        <!-- الاعتمادات الدولية كاملاً وبدون اختصار -->
         <h3 class="section-title" id="credentials"><i class="fas fa-award"></i> الاعتمادات والروابط الدولية للمؤسسة</h3>
         <div class="card">
             <p><strong>💼 شراكات مؤسسية:</strong> ترتبط سكوبس بشراكات مع آلاف الجامعات، والمؤسسات الأكاديمية، والوزارات، والمجالس البحثية حول العالم. تعتمد هذه المؤسسات على مؤشرات سكوبس (مثل CiteScore و h-index) كمعيار رئيسي في تصنيف الجامعات دولياً وتقييم جودة وترقية الباحثين.</p>
             <p><strong>📜 الاعتماد الذاتي:</strong> تعتمد سكوبس نفسها كمرجع عالمي موثوق، وتُستخدم مقاييسها من قبل هيئات منح الدرجات العلمية ووكالات التمويل البحثي في عدد كبير من الدول.</p>
             <p><strong>💡 ربط براءات الاختراع:</strong> ترتبط سكوبس بقواعد بيانات براءات الاختراع الدولية لتعزيز البحث الشامل، مثل: مكتب براءات الاختراع والعلامات التجارية الأمريكي (USPTO)، المكتب الأوروبي للبراءات (EPO)، مكتب براءات الاختراع الياباني (JPO)، والمنظمة العالمية للملكية الفكرية (WIPO).</p>
+            
+            <div class="credentials-images-list">
+                <img src="Logo4.jpeg" alt="اعتماد دولي 1">
+                <img src="Logo5.jpeg" alt="اعتماد دولي 2">
+                <img src="Logo6.jpeg" alt="اعتماد دولي 3">
+                <img src="Logo7.jpeg" alt="اعتماد دولي 4">
+                <img src="Logo8.jpeg" alt="اعتماد دولي 5">
+            </div>
         </div>
 
     </div>
 
-    <!-- الفوتر الأكاديمي -->
     <footer id="contact">
         <p><strong>📞 تواصل معنا الآن</strong></p>
         <p>يسعدنا استقبال مسودات أبحاثكم واستفساراتكم على مدار الساعة</p>
